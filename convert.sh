@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rawDT=`jq -r '.raw' config.json
+rawDT=`jq -r '.raw' config.json`
 
 mkdir noddi;
 
