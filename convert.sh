@@ -1,14 +1,10 @@
 #!/bin/bash
 
-icvf=`jq -r '.icvf' config.json`;
-isovf=`jq -r '.isovf' config.json`;
-od=`jq -r '.od' config.json`;
-dir=`jq -r '.dir' config.json`;
-metric="$icvf $isvof $od $dir";
+rawDT=`jq -r '.raw' config.json
 
 mkdir noddi;
 
-for i in $metric
-	do	
-		cp -v ${i} ./noddi/
-	done	
+cp -v ./$rawDT/FIT_ICVF_NEW.nii.gz ./noddi/icvf.nii.gz;
+cp -v ./$rawDT/FIT_ISOVF_NEW.nii.gz ./noddi/isovf.nii.gz;
+cp -v ./$rawDT/FIT_OD_NEW.nii.gz ./noddi/od.nii.gz;
+cp -v ./$rawDT/FIT_dir.nii.gz ./noddi/dir.nii.gz;
