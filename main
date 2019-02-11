@@ -3,12 +3,4 @@
 #PBS -N convert_raw_noddi
 #PBS -V
 
-rawDT=`jq -r '.raw' config.json
-
-mkdir noddi;
-
-cp -v ./$rawDT/FIT_ICVF_NEW.nii.gz ./noddi/icvf.nii.gz;
-cp -v ./$rawDT/FIT_ISOVF_NEW.nii.gz ./noddi/isovf.nii.gz;
-cp -v ./$rawDT/FIT_OD_NEW.nii.gz ./noddi/od.nii.gz;
-cp -v ./$rawDT/FIT_dir.nii.gz ./noddi/dir.nii.gz;
-
+singularity exec -e docker://brainlife/fsl:5.0.9 ./convert.sh
